@@ -108,6 +108,13 @@ label {
   font-weight: 800;
 }
 
+.field-hint {
+  color: #7c8591;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
 input,
 textarea {
   width: 100%;
