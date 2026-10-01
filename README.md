@@ -13,12 +13,17 @@ The first real submission to FormSubmit may send an activation email to the sell
 
 ## Change Seller Email
 
-Edit `app.js`:
+Edit `config.js`:
 
 ```js
-sellerEmail: "seller@example.com",
-formEndpoint: "https://formsubmit.co/seller@example.com"
+window.REQUEST_DESK_CONFIG = {
+  sellerEmail: "seller@example.com"
+};
 ```
+
+The first submission to a new email address may trigger a FormSubmit activation
+email. Open that inbox and click the activation link before using the form for
+real requests.
 
 ## Run Locally
 

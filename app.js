@@ -1,13 +1,11 @@
-const CONFIG = {
-  sellerEmail: "hello.blis.ai@gmail.com",
-  formEndpoint: "https://formsubmit.co/hello.blis.ai@gmail.com"
-};
+const CONFIG = window.REQUEST_DESK_CONFIG || {};
+const sellerEmail = String(CONFIG.sellerEmail || "hello.blis.ai@gmail.com").trim();
 
 const form = document.getElementById("requestForm");
 const statusEl = document.getElementById("status");
 const copyButton = document.getElementById("copyButton");
 
-form.action = CONFIG.formEndpoint;
+form.action = `https://formsubmit.co/${encodeURIComponent(sellerEmail)}`;
 
 form.addEventListener("submit", () => {
   statusEl.textContent = "Sending request...";
