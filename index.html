@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Request Desk</title>
+    <meta name="description" content="A simple request-only order intake page for small sellers.">
+    <link rel="icon" href="assets/request-desk.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="request-panel" aria-labelledby="pageTitle">
+        <header class="topbar">
+          <img class="brand-icon" src="assets/request-desk.svg" alt="" width="44" height="44">
+          <div>
+            <p class="eyebrow">Request only</p>
+            <h1 id="pageTitle">Request Desk</h1>
+          </div>
+        </header>
+
+        <p class="intro">
+          Send a clear request. The seller will check availability and reply before anything is confirmed.
+        </p>
+
+        <form id="requestForm" class="request-form" method="post">
+          <input type="hidden" name="_subject" value="New Request Desk request">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+
+          <label>
+            Your name
+            <input name="name" id="name" autocomplete="name" required maxlength="80" placeholder="Alex">
+          </label>
+
+          <label>
+            Contact
+            <input name="contact" id="contact" autocomplete="email tel" required maxlength="120" placeholder="Email or phone number">
+          </label>
+
+          <label>
+            What do you want?
+            <input name="item" id="item" required maxlength="120" placeholder="Item, service, or request">
+          </label>
+
+          <div class="split">
+            <label>
+              Quantity
+              <input name="quantity" id="quantity" inputmode="numeric" maxlength="20" placeholder="1">
+            </label>
+            <label>
+              Needed by
+              <input name="needed_by" id="neededBy" maxlength="40" placeholder="Optional">
+            </label>
+          </div>
+
+          <label>
+            Notes
+            <textarea name="notes" id="notes" rows="4" maxlength="800" placeholder="Sizes, colors, delivery/pickup details, questions..."></textarea>
+          </label>
+
+          <div class="actions">
+            <button class="primary" type="submit">Send request</button>
+            <button class="secondary" id="copyButton" type="button">Copy request</button>
+          </div>
+
+          <p class="status" id="status" role="status">No payment is taken on this page.</p>
+        </form>
+      </section>
+
+      <aside class="seller-panel" aria-label="Seller information">
+        <div class="photo-band" aria-hidden="true"></div>
+        <div class="seller-content">
+          <h2>How it works</h2>
+          <ol>
+            <li>Customer sends a request.</li>
+            <li>Seller checks availability.</li>
+            <li>Seller replies with price, pickup, delivery, or next steps.</li>
+          </ol>
+          <div class="note-card">
+            <strong>For the seller</strong>
+            <p>All requests arrive with the same subject, so they are easy to search, label, or move into a sheet later.</p>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
